@@ -8,5 +8,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-math3-3.6" level="project" />
+    <orderEntry type="library" name="commons-io-2.6" level="project" />
+    <orderEntry type="library" name="commons-io-2.6-sources" level="project" />
+    <orderEntry type="library" name="commons-io-2.6-javadoc" level="project" />
+    <orderEntry type="library" name="commons-io-2.6-test-sources" level="project" />
+    <orderEntry type="library" name="commons-io-2.6-tests" level="project" />
+    <orderEntry type="library" name="commons-io-2.6-javadoc (2)" level="project" />
+    <orderEntry type="library" name="commons-math3-3.6.1" level="project" />
   </component>
 </module>
