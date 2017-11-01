@@ -3,7 +3,6 @@ package AHP;
 import org.apache.commons.math3.linear.EigenDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
-import org.apache.commons.math3.linear.RealVector;
 
 import java.util.ArrayList;
 
@@ -99,6 +98,13 @@ class Ahp {
         return aggregation(criteriaWeights, alternativesMatrix);
     }
 
+    /**
+     * Aggregates the two matrices to obtain the ranking of the alternatives.
+     *
+     * @param criteriaWeights the criteria priorities.
+     * @param alternativesMatrix a matrix that contains the local alternative priorities regarding criteria.
+     * @return an array with the alternatives's ranking.
+     */
     private double[] aggregation(double[] criteriaWeights, double [][] alternativesMatrix) {
 
         double[] ranking = new double[alternatives.get(0).length];
@@ -167,17 +173,15 @@ class Ahp {
         EigenDecomposition decomposition = new EigenDecomposition(realMatrix);
         double[] eigenValues = decomposition.getRealEigenvalues();
 
-        double max = eigenValues[0];
         int pos = 0;
 
         for (int i = 1; i < eigenValues.length; ++i) {
-            if (eigenValues[i] > max) {
-                max = eigenValues[i];
+            if (eigenValues[i] > eigenValues[pos]) {
                 pos = i;
             }
         }
 
-        consistencyIndexes.add((max - matrix.length) / (matrix.length - 1));
+        consistencyIndexes.add((eigenValues[pos] - matrix.length) / (matrix.length - 1));
         return decomposition.getEigenvector(pos).toArray();
     }
 
