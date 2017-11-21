@@ -217,7 +217,11 @@ class Ahp {
         consistencyRatios.add(consistencyIndexes.get(0) / randomIndex[criteria.length - 3]);
 
         for (int i = 0; i < criteria.length; ++i) {
-            consistencyRatios.add(consistencyIndexes.get(i + 1) / randomIndex[alternatives.get(0).length - 3]);
+            if (criteria.length <= 3) {
+                consistencyRatios.add(consistencyIndexes.get(i + 1) / randomIndex[0]);
+            } else {
+                consistencyRatios.add(consistencyIndexes.get(i + 1) / randomIndex[alternatives.get(0).length - 3]);
+            }
         }
     }
 

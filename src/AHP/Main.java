@@ -297,7 +297,7 @@ public class Main {
                         boolean validValues;
                         do {
                             validValues = true;
-                            System.out.println("Please enter row " + (j + 1) + " of the alternative " + (i + 1) + " matrix by separating each value with ';': \n");
+                            System.out.println("Please enter row " + (j + 1) + " of the alternative " + (i + 1) + "comparision matrix by separating each value with ';': \n");
                             values = input.nextLine().split(";");
 
                             if (values.length != numberOfAlternatives) {
